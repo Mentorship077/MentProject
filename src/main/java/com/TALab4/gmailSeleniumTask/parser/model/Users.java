@@ -4,12 +4,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement
+@XmlRootElement(name = "users")
 public class Users {
-    // the name of field have to be the same
     private List<User> user ;
 
-    @XmlElement
+    @XmlElement(name = "user")
     public List<User> getUser() {
         return user;
     }

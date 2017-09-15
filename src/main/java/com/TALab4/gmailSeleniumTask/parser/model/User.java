@@ -1,9 +1,12 @@
 package com.TALab4.gmailSeleniumTask.parser.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created  on 14.09.17.
  */
 
+@XmlRootElement(name = "user")
 public class User {
 
     private String email;

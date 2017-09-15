@@ -16,9 +16,10 @@ import java.util.List;
  * after that we can iterate than and retrieve info. (getEmail, ...)
  * <p>
  * For example: <pre>{@code
+ *      ParserJAXB parserJAXB = new ParserJAXB();
  *      List<User> users = parserJAXB.parserUsers();
  *       for (User user: users) {
- *          user.getEmail()
+ *          user.getEmail();
  *       }
  *      }</pre>
  * Created  on 14.09.17.
@@ -26,6 +27,14 @@ import java.util.List;
 public class ParserJAXB {
     private static final String USERS_XML_PATH = "src/main/resources/users.xml";
     private static final String MESSAGES_XML_PATH = "src/main/resources/messages.xml";
+
+    public static void main(String[] args) throws JAXBException {
+        ParserJAXB parserJAXB = new ParserJAXB();
+        List<User> users = parserJAXB.parserUsers();
+        for (User user : users) {
+            System.out.println(user.getEmail());
+        }
+    }
 
     protected List<Message> parserMessages() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Messages.class);
