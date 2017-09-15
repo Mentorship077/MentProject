@@ -19,12 +19,6 @@ public class SingUpPage extends PageObject {
     @FindBy(name = "password")
     private WebElement password;
 
-
-    //    @FindBy(how = How.PARTIAL_LINK_TEXT, using = "Next")
-//    @FindBys({
-//            @FindBy(partialLinkText = "Next")
-//        }
-//    )
     @FindBy(css = "span[class='RveJvd snByac']")
     private WebElement passwordSubmit;
 

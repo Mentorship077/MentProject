@@ -10,11 +10,12 @@ import org.openqa.selenium.support.How;
  * Created  on 11.09.17.
  */
 public class VerifyMessage extends PageObject {
-    private final static String to = "khimin1719@gmail.com";
+    private final static String TO_EMAIL = "khimin1719@gmail.com";
+
     @FindBy(how = How.CSS, css = "a[title=\"Надіслані\"]")
     private WebElement sent;
 
-    @FindBy(how = How.XPATH, xpath = "//span[@email=\"" + to + "\"]")
+    @FindBy(how = How.XPATH, xpath = "//span[@email=\"" + TO_EMAIL + "\"]")
     private WebElement messageVerify;
 
     @FindBy(how = How.CSS, css = "div[role=\"checkbox\"][dir=\"ltr\"]")

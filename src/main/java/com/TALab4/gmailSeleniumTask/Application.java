@@ -18,9 +18,12 @@ public class Application {
 //        new UserStAX().parseXmlFile(PATH_USERS_XML);
 
     private final static ResourceBundle userBundle = ResourceBundle.getBundle("user");
+
     private static WebDriver driver = new ChromeDriver();
 
     public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+
         driver.get("https://www.google.com/intl/ru/gmail/about/");
         driver.findElement(By.xpath("//a[text()='Войти']")).click();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
