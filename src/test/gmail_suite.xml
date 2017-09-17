@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Custom suite" parallel="none">
+<!--<suite name="Custom suite" parallel="none">
     <test verbose="1" name="TestNG" annotations="JDK">
         <classes>
             <class name="ApplicationTest">
@@ -10,4 +10,11 @@
             </class>
         </classes>
     </test>
+</suite>-->
+<suite name="Parallel test suite" parallel="methods" thread-count="2">
+<test name="Regression 1">
+    <classes>
+        <class name="TestParallelOne"/>
+    </classes>
+</test>
 </suite>

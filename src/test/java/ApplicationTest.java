@@ -5,7 +5,7 @@ import com.TALab4.gmailSeleniumTask.parser.XMLParser;
 import com.TALab4.gmailSeleniumTask.parser.model.Message;
 import com.TALab4.gmailSeleniumTask.parser.model.User;
 import com.TALab4.gmailSeleniumTask.util.EnvProperties;
-import com.TALab4.gmailSeleniumTask.webdriverutils.WebDriverUtils;
+import com.TALab4.gmailSeleniumTask.webdriverutils.WebDriverSingleton;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -28,13 +28,13 @@ public class ApplicationTest extends Assert {
 
     @AfterTest
     public void quitTheBrowser() {
-        WebDriverUtils.quitTheBrowser();
+        WebDriverSingleton.quitTheBrowser();
     }
 
-    @Test(threadPoolSize = 2)
+    @Test
     public void gmailTest() throws JAXBException, InterruptedException {
-        WebDriverUtils.gotoURL(prop.getBaseUrl());
-        WebDriverUtils.clickFirstLink("//*[@data-g-label=\"Sign in\"]");
+        WebDriverSingleton.gotoURL(prop.getBaseUrl());
+        WebDriverSingleton.clickFirstLink("//*[@data-g-label=\"Sign in\"]");
 
         List<User> users = XMLParser.parseUsers();
         boolean isLoggedIn = loginBO.login(users.get(0));
