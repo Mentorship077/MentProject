@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<!--
 <suite name="ApplicationTestSuite" parallel="none">
     <test verbose="1" name="GmailTest" annotations="JDK">
         <classes>
@@ -11,13 +10,4 @@
             </class>
         </classes>
     </test>
-</suite>
--->
-
-<suite name="DataProviderExampleSuite" parallel="false">
-<test name="InstanceDataProviderTest">
-    <classes>
-        <class name="InstanceDataProviderExample"/>
-    </classes>
-</test>
 </suite>

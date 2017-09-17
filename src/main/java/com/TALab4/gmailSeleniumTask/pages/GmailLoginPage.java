@@ -1,7 +1,6 @@
 package com.TALab4.gmailSeleniumTask.pages;
 
 import com.TALab4.gmailSeleniumTask.webdriverutils.PageObject;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,7 +15,6 @@ public class GmailLoginPage extends PageObject {
     private WebElement emailSubmit;
     @FindBy(name = "password")
     private WebElement password;
-//    @FindBy(css = "span[class='RveJvd snByac']")
     @FindBy(xpath = "//*[@class=\"CwaK9\"] | *[@class='RveJvd snByac']")
     private WebElement passwordSubmit;
 
@@ -26,9 +24,9 @@ public class GmailLoginPage extends PageObject {
         return this;
     }
 
-    public GmailHomePage typePasswordAndSubmit(String passwordValue) {
+    public GmailLoginPage typePasswordAndSubmit(String passwordValue) {
         this.password.sendKeys(passwordValue);
         this.passwordSubmit.click();
-        return new GmailHomePage();
+        return this;
     }
 }
