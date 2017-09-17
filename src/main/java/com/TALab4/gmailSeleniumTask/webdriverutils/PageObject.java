@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 
+import java.sql.Driver;
+
 /**
  * Created  on 11.09.17.
  */
@@ -12,8 +14,10 @@ public class PageObject {
 
     private PageObject(WebDriver driver) {
         WebDriver instance = WebDriverSingleton.getInstance();
-        PageFactory.initElements(new DefaultElementLocatorFactory(instance), this);
-//        PageFactory.initElements(new MyFieldDecorator(instance),this);
+        PageFactory.initElements(
+                new MyFieldDecorator(
+                        new DefaultElementLocatorFactory(WebDriverSingleton.getInstance())),
+                this);
     }
 
     public PageObject() {

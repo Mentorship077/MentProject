@@ -4,11 +4,11 @@ import com.TALab4.gmailSeleniumTask.businessobject.GmailVerifyMessageBO;
 import com.TALab4.gmailSeleniumTask.parser.XMLParser;
 import com.TALab4.gmailSeleniumTask.parser.model.Message;
 import com.TALab4.gmailSeleniumTask.parser.model.User;
+import com.TALab4.gmailSeleniumTask.util.DataProviderSource;
 import com.TALab4.gmailSeleniumTask.util.EnvProperties;
 import com.TALab4.gmailSeleniumTask.webdriverutils.WebDriverSingleton;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import javax.xml.bind.JAXBException;
@@ -26,27 +26,24 @@ public class ApplicationTest extends Assert {
     private final GmailComposeMessageBO composeMessageBO = new GmailComposeMessageBO();
     private final GmailVerifyMessageBO verifyMessageBO = new GmailVerifyMessageBO();
 
-    @AfterTest
-    public void quitTheBrowser() {
-        WebDriverSingleton.quitTheBrowser();
-    }
 
-    @Test()
-    public void gmailTest() throws JAXBException, InterruptedException {
+    @Test(dataProvider = "usersAndMessages", threadPoolSize = 2, invocationCount = 2, dataProviderClass = DataProviderSource.class)
+    public void gmailTest(User userList, Message messageList) throws JAXBException, InterruptedException {
         WebDriverSingleton.gotoURL(prop.getBaseUrl());
         WebDriverSingleton.clickFirstLink("//*[@data-g-label=\"Sign in\"]");
 
         List<User> users = XMLParser.parseUsers();
-        boolean isLoggedIn = loginBO.login(users.get(0));
+        boolean isLoggedIn = loginBO.login(userList);
         assertTrue(isLoggedIn);
 
         List<Message> messages = XMLParser.parseMessages();
-        boolean isComposedMessage = composeMessageBO.composeMessage(messages.get(0));
+        boolean isComposedMessage = composeMessageBO.composeMessage(messageList);
         assertTrue(isComposedMessage);
 
         boolean isSelectedAndDeletedMessage = verifyMessageBO.selectAndDeleteSentMessage();
         assertTrue(isSelectedAndDeletedMessage);
 
+        WebDriverSingleton.quitTheBrowser();
     }
 }
 

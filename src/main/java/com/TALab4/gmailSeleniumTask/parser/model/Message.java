@@ -5,6 +5,15 @@ public class Message {
     private String subject;
     private String textMessage;
 
+    @Override
+    public String toString() {
+        return "Message{" +
+                "to='" + to + '\'' +
+                ", subject='" + subject + '\'' +
+                ", textMessage='" + textMessage + '\'' +
+                '}';
+    }
+
     public String getTo() {
         return to;
     }
