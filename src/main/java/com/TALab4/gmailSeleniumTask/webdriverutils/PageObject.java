@@ -1,5 +1,7 @@
 package com.TALab4.gmailSeleniumTask.webdriverutils;
 
+import com.TALab4.gmailSeleniumTask.util.EnvProperties;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
@@ -10,7 +12,7 @@ import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 public class PageObject {
     protected WebDriver driver;
 
-    public PageObject(WebDriver driver){
+    private PageObject(WebDriver driver) {
         WebDriver instance = WebDriverUtils.getInstance();
         PageFactory.initElements(new DefaultElementLocatorFactory(instance), this);
     }

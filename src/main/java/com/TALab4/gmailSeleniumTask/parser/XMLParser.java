@@ -16,26 +16,26 @@ import java.util.List;
  * after that we can iterate than and retrieve info. (getEmail, ...)
  * <p>
  * For example: <pre>{@code
- *      ParserJAXB parserJAXB = new ParserJAXB();
- *      List<User> users = parserJAXB.parserUsers();
+ *      XMLParser parserJAXB = new XMLParser();
+ *      List<User> users = parserJAXB.parseUsers();
  *       for (User user: users) {
  *          user.getEmail();
  *       }
  *      }</pre>
  * Created  on 14.09.17.
  */
-public class ParserJAXB {
+public class XMLParser {
     private static final String USERS_XML_PATH = "src/test/resources/users.xml";
     private static final String MESSAGES_XML_PATH = "src/test/resources/messages.xml";
 
-    protected List<Message> parserMessages() throws JAXBException {
+    public static List<Message> parseMessages() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Messages.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         Messages messages = (Messages) jaxbUnmarshaller.unmarshal(new File(MESSAGES_XML_PATH));
         return messages.getMessage();
     }
 
-    protected List<User> parserUsers() throws JAXBException {
+    public static List<User> parseUsers() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Users.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         Users users = (Users) jaxbUnmarshaller.unmarshal(new File(USERS_XML_PATH));

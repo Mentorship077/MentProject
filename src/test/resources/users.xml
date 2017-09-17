@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
     <user>
-        <email>test@gmail.com</email>
-        <password>test</password>
+        <email>papai9919@gmail.com</email>
+        <password>123456Pp</password>
     </user>
-    <!--<user>-->
-        <!--<email>test2@gmail.com</email>-->
-        <!--<password>test2</password>-->
-    <!--</user>-->
+    <user>
+        <email>superPapai1488@gmail.com</email>
+        <password>superPapai</password>
+    </user>
 </users>

@@ -31,12 +31,12 @@ public class Application {
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 
         new GmailLoginPage(driver).emailLogin(userBundle.getString("email"),userBundle.getString("password"));
-        new GmailCreateMessagePage(driver).generalCreteMessage(userBundle.getString("to"), userBundle.getString("subject"), userBundle.getString("textMessage"));
+        new GmailComposeMessagePage(driver).generalCreteMessage(userBundle.getString("to"), userBundle.getString("subject"), userBundle.getString("textMessage"));
 
        GmailVerifyMessage gmailVerifyMessage = new GmailVerifyMessage(driver);
        gmailVerifyMessage.openSent();
        gmailVerifyMessage.checkMessage();
-       gmailVerifyMessage.deleteMessage();
+       gmailVerifyMessage.deleteMessageAndConfirm();
 
        driver.quit();
     }

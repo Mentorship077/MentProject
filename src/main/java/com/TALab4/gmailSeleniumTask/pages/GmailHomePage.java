@@ -1,7 +1,7 @@
 package com.TALab4.gmailSeleniumTask.pages;
 
 public class GmailHomePage {
-    GmailCreateMessagePage messagePage;
+    GmailComposeMessagePage messagePage;
 
     GmailVerifyMessage gmailVerifyMessage;
 }
