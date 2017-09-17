@@ -19,7 +19,6 @@ public class MyFieldDecorator extends DefaultFieldDecorator {
 
     @Override
     public Object decorate(ClassLoader loader, Field field) {
-//        return super.decorate(loader, field);
         if (WebElement.class.isAssignableFrom(field.getType())) {
             return super.decorate(loader, field);
         } else {

@@ -27,7 +27,7 @@ public class ApplicationTest extends Assert {
     private final GmailVerifyMessageBO verifyMessageBO = new GmailVerifyMessageBO();
 
 
-    @Test(dataProvider = "usersAndMessages", threadPoolSize = 2, invocationCount = 2, dataProviderClass = DataProviderSource.class)
+    @Test(dataProvider = "usersAndMessages", threadPoolSize = 1, invocationCount = 1, dataProviderClass = DataProviderSource.class)
     public void gmailTest(User userList, Message messageList) throws JAXBException, InterruptedException {
         WebDriverSingleton.gotoURL(prop.getBaseUrl());
         WebDriverSingleton.clickFirstLink("//*[@data-g-label=\"Sign in\"]");
