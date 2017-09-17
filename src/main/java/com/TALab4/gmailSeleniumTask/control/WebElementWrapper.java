@@ -4,11 +4,11 @@ import org.openqa.selenium.*;
 
 import java.util.List;
 
-public abstract class AbstractElement implements WebElement {
+public class WebElementWrapper implements WebElement {
 
 	protected WebElement webElement;
 
-	public AbstractElement(WebElement webElement) {
+	public WebElementWrapper(WebElement webElement) {
 		this.webElement = webElement;
 	}
 

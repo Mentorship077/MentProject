@@ -37,56 +37,16 @@ public class ApplicationTest extends Assert {
         WebDriverUtils.clickFirstLink("//*[@data-g-label=\"Sign in\"]");
 
         List<User> users = XMLParser.parseUsers();
-        loginBO.login(users.get(0));
+        boolean isLoggedIn = loginBO.login(users.get(0));
+        assertTrue(isLoggedIn);
+
         List<Message> messages = XMLParser.parseMessages();
-        composeMessageBO.composeMessage(messages.get(0));
-        verifyMessageBO.selectAndDeleteSentMessage();
-//        for (User user: users) {
-//            System.out.println(user.getEmail());
-//        }
+        boolean isComposedMessage = composeMessageBO.composeMessage(messages.get(0));
+        assertTrue(isComposedMessage);
 
-//        List<UserModel> model = DataUtils.readUsers("/user.xml");
+        boolean isSelectedAndDeletedMessage = verifyMessageBO.selectAndDeleteSentMessage();
+        assertTrue(isSelectedAndDeletedMessage);
 
-//        assertTrue(isLoggedIn);
-        // Verify that user is logged in
-//       assertTrue("User is not located on GmailHomePage", isLoggedIn);
     }
-
-  /*  @Test
-    public void gmailLogin() {
-        driver.findElement(By.xpath("//a[text()='Войти']")).click();
-
-//        new GmailLoginPage(driver).emailLogin(emailValue,passwordValue);
-        GmailLoginPage gmailLoginPage = new GmailLoginPage(driver);
-        gmailLoginPage.setEmail(utilBundle.getString("email"));
-        gmailLoginPage.submitEmail();
-        gmailLoginPage.setPassword(utilBundle.getString("password"));
-        gmailLoginPage.submitPassword();
-    }
-
-    @Test(dependsOnMethods = {"gmailLogin"})
-    public void composeMessage() {
-        GmailComposeMessagePage createMessagePage = new GmailComposeMessagePage(driver);
-        createMessagePage.clickCreateMessage();
-        createMessagePage.fillTo(utilBundle.getString("to"));
-        createMessagePage.fillSubject(utilBundle.getString("subject"));
-        createMessagePage.fillTextMessage(utilBundle.getString("textMessage"));
-        createMessagePage.sentMessage();
-    }
-
-    @Test(dependsOnMethods = {"composeMessage"})
-    public void verifyMessage() {
-        GmailVerifyMessage gmailVerifyMessage = new GmailVerifyMessage(driver);
-        gmailVerifyMessage.openSent();
-        gmailVerifyMessage.checkMessage();
-        gmailVerifyMessage.deleteMessageAndConfirm();
-    }
-
-    @Test(dependsOnMethods = {"verifyMessage"})
-    public void deleteMessageAndConfirm() {
-        GmailVerifyMessage gmailVerifyMessage = new GmailVerifyMessage(driver);
-        gmailVerifyMessage.deleteMessageAndConfirm();
-
-    }*/
 }
 

@@ -8,11 +8,8 @@ import com.TALab4.gmailSeleniumTask.pages.GmailVerifyMessage;
 public class GmailVerifyMessageBO {
     public boolean selectAndDeleteSentMessage() throws InterruptedException {
         GmailVerifyMessage verifyMessage = new GmailVerifyMessage();
-        Thread.sleep(1000);
         verifyMessage.checkAndSelectSent();
-        Thread.sleep(1000);
         verifyMessage.deleteMessageAndConfirm();
-        Thread.sleep(1000);
         return true;
     }
 }
