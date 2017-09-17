@@ -12,6 +12,7 @@ import java.lang.reflect.Field;
  * Created  on 17.09.17.
  */
 public class MyFieldDecorator extends DefaultFieldDecorator {
+
     public MyFieldDecorator(ElementLocatorFactory factory) {
         super(factory);
     }
@@ -19,7 +20,6 @@ public class MyFieldDecorator extends DefaultFieldDecorator {
     @Override
     public Object decorate(ClassLoader loader, Field field) {
 //        return super.decorate(loader, field);
-        System.out.println();
         if (WebElement.class.isAssignableFrom(field.getType())) {
             return super.decorate(loader, field);
         } else {
