@@ -31,7 +31,7 @@ public class ApplicationTest extends Assert {
         WebDriverSingleton.quitTheBrowser();
     }
 
-    @Test
+    @Test()
     public void gmailTest() throws JAXBException, InterruptedException {
         WebDriverSingleton.gotoURL(prop.getBaseUrl());
         WebDriverSingleton.clickFirstLink("//*[@data-g-label=\"Sign in\"]");
