@@ -13,7 +13,7 @@ import java.util.List;
  * Created  on 17.09.17.
  */
 public class DataProviderSource {
-    @DataProvider(name = "usersAndMessages")
+    @DataProvider(name = "usersAndMessages",parallel = true)
     public static Object[][] getUsersAndMessages() throws JAXBException {
         List<User> usersList = XMLParser.parseUsers();
         List<Message> messageList = XMLParser.parseMessages();

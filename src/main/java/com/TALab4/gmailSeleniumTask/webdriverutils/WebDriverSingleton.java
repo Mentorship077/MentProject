@@ -21,7 +21,7 @@ public class WebDriverSingleton {
         if (webDriver.get() != null) {
             return webDriver.get();
         }
-//        System.setProperty("webdriver.chrome.driver", prop.getChomeDriverPath());
+        System.setProperty("webdriver.chrome.driver", prop.getChomeDriverPath());
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 
