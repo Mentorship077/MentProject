@@ -23,7 +23,7 @@ public class WebDriverSingleton {
         }
         System.setProperty("webdriver.chrome.driver", prop.getChomeDriverPath());
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 
         webDriver.set(driver);
         return webDriver.get();
@@ -39,5 +39,6 @@ public class WebDriverSingleton {
 
     public static void quitTheBrowser() {
         webDriver.get().quit();
+        webDriver.remove();
     }
 }
