@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ApplicationTestSuite" parallel="none">
+<suite name="ApplicationTestSuite" parallel="methods" thread-count="5">
     <test verbose="1" name="GmailTest" annotations="JDK">
         <classes>
             <class name="ApplicationTest">

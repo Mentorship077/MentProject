@@ -12,10 +12,8 @@ public class GmailVerifyMessage extends PageObject {
 
     @FindBy(how = How.CSS, css = "a[title=\"Надіслані\"]")
     private WebElement sent;
-
     @FindBy(how = How.XPATH, xpath = "//div[@class=\"BltHke nH oy8Mbf\"]//table[@class=\"F cf zt\"]//tbody[1]//tr[1]//td[2]")
     private WebElement emailCheckbox;
-
     @FindBy(how = How.XPATH, xpath = "//div[@class=\"D E G-atb aCh\"]//div[@class=\"G-tF\"]//div[2]//div[3] ")
     private WebElement deleteMessage;
     @FindBy(how = How.NAME, name = "ok")

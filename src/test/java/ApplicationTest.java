@@ -27,23 +27,21 @@ public class ApplicationTest extends Assert {
     private final GmailVerifyMessageBO verifyMessageBO = new GmailVerifyMessageBO();
 
 
-    @Test(dataProvider = "usersAndMessages", threadPoolSize = 3,  dataProviderClass = DataProviderSource.class)
+    @Test(dataProvider = "usersAndMessages", threadPoolSize = 10, dataProviderClass = DataProviderSource.class)
     public void gmailTest(User userList, Message messageList) throws JAXBException, InterruptedException {
-        WebDriverSingleton.gotoURL(prop.getBaseUrl());
-        WebDriverSingleton.clickFirstLink("//*[@data-g-label=\"Sign in\"]");
+        try {
 
-        List<User> users = XMLParser.parseUsers();
-        boolean isLoggedIn = loginBO.login(userList);
-        assertTrue(isLoggedIn);
-
-        List<Message> messages = XMLParser.parseMessages();
-        boolean isComposedMessage = composeMessageBO.composeMessage(messageList);
-        assertTrue(isComposedMessage);
-
-        boolean isSelectedAndDeletedMessage = verifyMessageBO.selectAndDeleteSentMessage();
-        assertTrue(isSelectedAndDeletedMessage);
-
-        WebDriverSingleton.quitTheBrowser();
+            WebDriverSingleton.gotoURL(prop.getBaseUrl());
+            WebDriverSingleton.clickFirstLink("//*[@data-g-label=\"Sign in\"]");
+            boolean isLoggedIn = loginBO.login(userList);
+            assertTrue(isLoggedIn);
+            boolean isComposedMessage = composeMessageBO.composeMessage(messageList);
+            assertTrue(isComposedMessage);
+            boolean isSelectedAndDeletedMessage = verifyMessageBO.selectAndDeleteSentMessage();
+            assertTrue(isSelectedAndDeletedMessage);
+        } finally {
+            WebDriverSingleton.quitTheBrowser();
+        }
     }
 }
 

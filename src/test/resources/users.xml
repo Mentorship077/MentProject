@@ -8,4 +8,17 @@
         <email>superPapai1488@gmail.com</email>
         <password>superPapai</password>
     </user>
+    <user>
+        <email>iryna123first@gmail.com</email>
+        <password>A1aB2bC3c</password>
+    </user>
+    <user>
+        <email>olegmarushchak.test@gmail.com</email>
+        <password>1234567890qwerty</password>
+    </user>
+
+    <user>
+        <email>irisha.ruda85@gmail.com</email>
+        <password>ruda1234</password>
+    </user>
 </users>
