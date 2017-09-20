@@ -34,6 +34,9 @@ public class EnvProperties {
     public String getBaseUrl() {
         return properties.getProperty("FIRST_PAGE");
     }
+    public String getFirstSignInLink() {
+        return properties.getProperty("FIRST_LINK");
+    }
     public String getChomeDriverPath() {
         return properties.getProperty("CHROME_DRIVER_PATH");
     }
