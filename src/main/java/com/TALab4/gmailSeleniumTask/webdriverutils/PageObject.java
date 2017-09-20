@@ -15,8 +15,7 @@ public class PageObject {
     private PageObject(WebDriver driver) {
         WebDriver instance = WebDriverSingleton.getInstance();
         PageFactory.initElements(
-                new MyFieldDecorator(
-                        new DefaultElementLocatorFactory(WebDriverSingleton.getInstance())),
+                new MyFieldDecorator(new DefaultElementLocatorFactory(WebDriverSingleton.getInstance())),
                 this);
     }
 

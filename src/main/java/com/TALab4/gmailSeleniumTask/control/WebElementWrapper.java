@@ -19,7 +19,6 @@ public class WebElementWrapper implements WebElement {
 
 	@Override
 	public void click() {
-		System.out.println("click");
 		webElement.click();
 	}
 
