@@ -31,7 +31,6 @@ public class ApplicationTest extends Assert {
     public void gmailTest(User userList, Message messageList) throws JAXBException, InterruptedException {
         try {
             WebDriverSingleton.gotoURL(prop.getBaseUrl());
-            WebDriverSingleton.clickFirstLink(prop.getFirstSignInLink());
 
             boolean isLoggedIn = loginBO.login(userList);
             assertTrue(isLoggedIn);

@@ -11,9 +11,9 @@ import java.lang.reflect.Field;
 /**
  * Created  on 17.09.17.
  */
-public class MyFieldDecorator extends DefaultFieldDecorator {
+public class CustomFieldDecorator extends DefaultFieldDecorator {
 
-    public MyFieldDecorator(ElementLocatorFactory factory) {
+    public CustomFieldDecorator(ElementLocatorFactory factory) {
         super(factory);
     }
 
