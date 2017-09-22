@@ -1,4 +1,4 @@
-package com.TALab4.gmailSeleniumTask.util;
+package com.TALab4.gmailSeleniumTask.webdriverutils;
 
 import com.TALab4.gmailSeleniumTask.parser.XMLParser;
 import com.TALab4.gmailSeleniumTask.parser.model.Message;
