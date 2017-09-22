@@ -11,13 +11,13 @@ public class PageObject {
     protected WebDriver driver;
 
     private PageObject(WebDriver driver) {
-        WebDriver instance = WebDriverSingleton.getInstance();
+        WebDriver driverInstance = ParallelWebDriver.getInstance();
         PageFactory.initElements(
-                new CustomFieldDecorator(new DefaultElementLocatorFactory(WebDriverSingleton.getInstance())),
+                new CustomFieldDecorator(new DefaultElementLocatorFactory(ParallelWebDriver.getInstance())),
                 this);
     }
 
     public PageObject() {
-        this(WebDriverSingleton.getInstance());
+        this(ParallelWebDriver.getInstance());
     }
 }

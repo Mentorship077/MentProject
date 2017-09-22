@@ -10,11 +10,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created  on 17.09.17.
  */
-public class WebDriverSingleton {
+public class ParallelWebDriver {
     private final static EnvProperties prop = EnvProperties.getInstance();
     private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
-    private WebDriverSingleton() {
+    private ParallelWebDriver() {
     }
 
     public static WebDriver getInstance() {
