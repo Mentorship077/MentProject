@@ -8,6 +8,6 @@ public class GmailLoginBO {
         GmailLoginPage gmailLoginPage = new GmailLoginPage();
         gmailLoginPage.typeLoginAndSubmit(user.getEmail());
         gmailLoginPage.typePasswordAndSubmit(user.getPassword());
-        return true;
+        return gmailLoginPage.isGmailLoginLoadBarVisible();
     }
 }
