@@ -12,7 +12,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ParallelWebDriver {
     private final static EnvProperties prop = EnvProperties.getInstance();
-    private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+    private static final int THREAD_COUNT = 3;
+    private static final ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+    private static int counter = 0;
+
 
     private ParallelWebDriver() {
     }
@@ -22,10 +25,15 @@ public class ParallelWebDriver {
             return webDriver.get();
         }
         System.setProperty("webdriver.chrome.driver", prop.getChomeDriverPath());
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
-
-        webDriver.set(driver);
+        synchronized (webDriver) {
+            while (counter == THREAD_COUNT) {
+                webDriver.notify();
+            }
+            counter++;
+            WebDriver driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
+            webDriver.set(driver);
+        }
         return webDriver.get();
     }
 
@@ -39,6 +47,7 @@ public class ParallelWebDriver {
 
     public static void quitTheBrowser() {
         try {
+            counter--;
             webDriver.get().quit();
         } finally {
             webDriver.remove();
