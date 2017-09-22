@@ -30,10 +30,10 @@ public class ParallelWebDriver {
                 webDriver.notify();
             }
             counter++;
-            WebDriver driver = new ChromeDriver();
-            driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
-            webDriver.set(driver);
         }
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
+        webDriver.set(driver);
         return webDriver.get();
     }
 
@@ -47,9 +47,9 @@ public class ParallelWebDriver {
 
     public static void quitTheBrowser() {
         try {
-            counter--;
             webDriver.get().quit();
         } finally {
+            counter--;
             webDriver.remove();
         }
     }
