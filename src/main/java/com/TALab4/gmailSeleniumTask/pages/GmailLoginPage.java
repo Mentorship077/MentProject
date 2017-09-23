@@ -1,12 +1,9 @@
 package com.TALab4.gmailSeleniumTask.pages;
 
 import com.TALab4.gmailSeleniumTask.webdriverutils.PageObject;
-import com.TALab4.gmailSeleniumTask.webdriverutils.ParallelWebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created  on 11.09.17.
@@ -30,7 +27,7 @@ public class GmailLoginPage extends PageObject {
 
     public GmailLoginPage typePasswordAndSubmit(String passwordValue) {
         this.password.sendKeys(passwordValue);
-        waitForVisibilityAndClick(passwordSubmit);
+        waitForVisibility(passwordSubmit);
         this.passwordSubmit.click();
         return this;
     }

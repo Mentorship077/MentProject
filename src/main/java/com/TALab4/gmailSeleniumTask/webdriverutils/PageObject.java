@@ -23,7 +23,7 @@ public class PageObject {
         this(ParallelWebDriver.getInstance());
     }
 
-     protected void waitForVisibilityAndClick(WebElement element) throws Error {
+     protected void waitForVisibility(WebElement element) throws Error {
         new WebDriverWait(driverInstance, 60)
                 .until(ExpectedConditions.visibilityOf(element));
     }
