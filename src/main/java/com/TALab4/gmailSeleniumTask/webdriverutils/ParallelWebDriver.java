@@ -41,10 +41,6 @@ public class ParallelWebDriver {
         getInstance().navigate().to(url);
     }
 
-    public static void clickFirstLink(String XPath) {
-        webDriver.get().findElement(By.xpath(XPath)).click();
-    }
-
     public static void quitTheBrowser() {
         try {
             webDriver.get().quit();
