@@ -26,6 +26,7 @@ public class ApplicationTest extends Assert {
     private final GmailVerifyMessageBO verifyMessageBO = new GmailVerifyMessageBO();
 
 
+
     @Test(successPercentage = 75, dataProvider = "usersAndMessages", threadPoolSize = 3, dataProviderClass = DataProviderSource.class)
     public void gmailTest(User userList, Message messageList) throws JAXBException, InterruptedException {
         ParallelWebDriver.gotoURL(prop.getBaseUrl());

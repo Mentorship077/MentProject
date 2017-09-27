@@ -11,15 +11,15 @@ import org.openqa.selenium.support.How;
  */
 public class GmailComposeMessagePage extends PageObject {
 
-    @FindBy(how = How.XPATH , xpath ="//div[@gh=\"cm\"]" )
+    @FindBy(xpath ="//div[@gh=\"cm\"]" )
     private WebElement creteMessage;
-    @FindBy(how = How.NAME , name ="to" )
+    @FindBy(name ="to" )
     private WebElement to;
-    @FindBy(how = How.NAME , name ="subjectbox" )
+    @FindBy(name ="subjectbox" )
     private WebElement subjectbox;
-    @FindBy(how = How.XPATH , xpath ="//td[@class=\"Ap\"]//div[2]//div[1]" )
+    @FindBy(xpath ="//td[@class=\"Ap\"]//div[2]//div[1]" )
     private WebElement textMessage;
-    @FindBy(how = How.XPATH , xpath ="//td[@class=\"gU Up\"]//div[1]//div[2]" )
+    @FindBy(xpath ="//td[@class=\"gU Up\"]//div[1]//div[2]" )
     private WebElement sentMessage;
 
     public void typeMessageAndSubmit(String to, String subject, String textMessage){
