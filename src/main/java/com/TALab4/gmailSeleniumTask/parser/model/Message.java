@@ -14,6 +14,15 @@ public class Message {
                 '}';
     }
 
+    public Message() {
+    }
+
+    public Message(String to, String subject, String textMessage) {
+        this.to = to;
+        this.subject = subject;
+        this.textMessage = textMessage;
+    }
+
     public String getTo() {
         return to;
     }
