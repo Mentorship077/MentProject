@@ -9,34 +9,28 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVParser {
-    private static final String USERS_XML_PATH = "src/test/resources/csv/users.csv";
-    private static final String MESSAGES_XML_PATH = "src/test/resources/csv/messages.csv";
+public class CSVParser implements AbstractParser {
+    private static final char COMA_SEPERATOR = ',';
 
-    public static List<User> csvUserParser() throws IOException {
-        CSVReader reader = new CSVReader(new FileReader(USERS_XML_PATH), ',');
+    @Override
+    public List<User> parseUsers() throws IOException {
+        CSVReader reader = new CSVReader(new FileReader(USERS_CSV_PATH), COMA_SEPERATOR);
         List<User> users = new ArrayList<>();
         String[] record = null;
         while ((record = reader.readNext()) != null) {
-            User emp = new User();
-            emp.setEmail(record[0]);
-            emp.setPassword(record[1]);
-            users.add(emp);
+            users.add(new User(record[0], record[1]));
         }
         reader.close();
         return users;
     }
 
-    public static List<Message> csvMessageParser() throws IOException {
-        CSVReader reader = new CSVReader(new FileReader(MESSAGES_XML_PATH), ',');
+    @Override
+    public List<Message> parseMessages() throws IOException {
+        CSVReader reader = new CSVReader(new FileReader(MESSAGES_CSV_PATH), COMA_SEPERATOR);
         List<Message> messages = new ArrayList<>();
         String[] record = null;
         while ((record = reader.readNext()) != null) {
-            Message message = new Message();
-            message.setTo(record[0]);
-            message.setSubject(record[1]);
-            message.setTextMessage(record[2]);
-            messages.add(message);
+            messages.add(new Message(record[0], record[1], record[2]));
         }
         reader.close();
         return messages;
