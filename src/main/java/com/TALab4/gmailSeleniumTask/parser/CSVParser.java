@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVParser {
-    private static final String USERS_XML_PATH = "src/test/resources/users.csv";
-    private static final String MESSAGES_XML_PATH = "src/test/resources/messages.csv";
+    private static final String USERS_XML_PATH = "src/test/resources/csv/users.csv";
+    private static final String MESSAGES_XML_PATH = "src/test/resources/csv/messages.csv";
 
     public static List<User> csvUserParser() throws IOException {
         CSVReader reader = new CSVReader(new FileReader(USERS_XML_PATH), ',');

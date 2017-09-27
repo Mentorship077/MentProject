@@ -25,8 +25,8 @@ import java.util.List;
  * Created  on 14.09.17.
  */
 public class XMLParser {
-    private static final String USERS_XML_PATH = "src/test/resources/users.xml";
-    private static final String MESSAGES_XML_PATH = "src/test/resources/messages.xml";
+    private static final String USERS_XML_PATH = "src/test/resources/xml/users.xml";
+    private static final String MESSAGES_XML_PATH = "src/test/resources/xml/messages.xml";
 
     public static List<Message> parseMessages() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Messages.class);
