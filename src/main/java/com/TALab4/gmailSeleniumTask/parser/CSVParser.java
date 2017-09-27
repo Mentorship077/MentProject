@@ -10,26 +10,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVParser {
-    public static void main(String[] args) throws IOException {
+    private static final String USERS_XML_PATH = "src/test/resources/users.csv";
+    private static final String MESSAGES_XML_PATH = "src/test/resources/messages.csv";
 
-        csvUserParser();
-    }
-
-    private static Object[] csvUserParser() throws IOException {
-        CSVReader reader = new CSVReader(new FileReader("src/test/resources/users.csv"), ',');
-        List<User> emps = new ArrayList<>();
+    public static List<User> csvUserParser() throws IOException {
+        CSVReader reader = new CSVReader(new FileReader(USERS_XML_PATH), ',');
+        List<User> users = new ArrayList<>();
         String[] record = null;
         while ((record = reader.readNext()) != null) {
             User emp = new User();
             emp.setEmail(record[0]);
             emp.setPassword(record[1]);
-            emps.add(emp);
+            users.add(emp);
         }
         reader.close();
-        return emps.toArray();
+        return users;
     }
-    private static Object[] csvmESSAGEParser() throws IOException {
-        CSVReader reader = new CSVReader(new FileReader("src/test/resources/messages.csv"), ',');
+
+    public static List<Message> csvMessageParser() throws IOException {
+        CSVReader reader = new CSVReader(new FileReader(MESSAGES_XML_PATH), ',');
         List<Message> messages = new ArrayList<>();
         String[] record = null;
         while ((record = reader.readNext()) != null) {
@@ -40,6 +39,6 @@ public class CSVParser {
             messages.add(message);
         }
         reader.close();
-        return messages.toArray();
+        return messages;
     }
 }
