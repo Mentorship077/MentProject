@@ -4,18 +4,20 @@ import com.TALab4.gmailSeleniumTask.util.EnvProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created  on 17.09.17.
  */
-public class WebDriverSingleton {
+public class ParallelWebDriver {
     private final static EnvProperties prop = EnvProperties.getInstance();
-    private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+    private static final int THREAD_COUNT = 3;
+    private static final ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+    private static int counter = 0;
 
-    private WebDriverSingleton() {
+
+    private ParallelWebDriver() {
     }
 
     public static WebDriver getInstance() {
@@ -23,9 +25,14 @@ public class WebDriverSingleton {
             return webDriver.get();
         }
         System.setProperty("webdriver.chrome.driver", prop.getChomeDriverPath());
+        synchronized (webDriver) {
+            while (counter == THREAD_COUNT) {
+                webDriver.notify();
+            }
+            counter++;
+        }
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
-
         webDriver.set(driver);
         return webDriver.get();
     }
@@ -34,12 +41,12 @@ public class WebDriverSingleton {
         getInstance().navigate().to(url);
     }
 
-    public static void clickFirstLink(String XPath) {
-        webDriver.get().findElement(By.xpath(XPath)).click();
-    }
-
     public static void quitTheBrowser() {
-        webDriver.get().quit();
-        webDriver.remove();
+        try {
+            webDriver.get().quit();
+        } finally {
+            counter--;
+            webDriver.remove();
+        }
     }
 }

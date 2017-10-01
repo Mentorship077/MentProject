@@ -11,8 +11,6 @@ public class GmailComposeMessageBO {
         GmailComposeMessagePage composeMessagePage = new GmailComposeMessagePage();
         composeMessagePage.typeMessageAndSubmit(message.getTo(),
                 message.getSubject(), message.getTextMessage());
-//        return gmailHomePage.isMyAccountMessageVisible();
         return true;
-
     }
 }
