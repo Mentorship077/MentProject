@@ -14,9 +14,9 @@ public class GmailLoginPage extends PageObject {
     private WebElement email;
     @FindBy(css = "span[class='RveJvd snByac']")
     private WebElement emailSubmit;
-    @FindBy(how = How.NAME, name = "password")
+    @FindBy(name = "password")
     private WebElement password;
-    @FindBy(how = How.CSS, css = "span[class='RveJvd snByac']")
+    @FindBy(css = "span[class='RveJvd snByac']")
     private WebElement passwordSubmit;
 
     public GmailLoginPage typeLoginAndSubmit(String emailValue) {
