@@ -15,8 +15,7 @@ public class PageObject {
     private PageObject(WebDriver driver) {
         driverInstance = ParallelWebDriver.getInstance();
         PageFactory.initElements(
-                new CustomFieldDecorator(new DefaultElementLocatorFactory(ParallelWebDriver.getInstance())),
-                this);
+                new FieldDecorator(driver),this);
     }
 
     public PageObject() {

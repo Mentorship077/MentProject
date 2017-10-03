@@ -2,7 +2,7 @@ package com.TALab4.gmailSeleniumTask.control;
 
 import org.openqa.selenium.WebElement;
 
-public class TextInput extends WebElementWrapper {
+public class TextInput extends Element {
 
 	public TextInput(WebElement webElement) {
 		super(webElement);
