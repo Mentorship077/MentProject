@@ -2,25 +2,20 @@ package com.TALab4.gmailSeleniumTask.webdriverutils;
 
 import com.TALab4.gmailSeleniumTask.parser.AbstractParser;
 import com.TALab4.gmailSeleniumTask.parser.CSVParser;
-import com.TALab4.gmailSeleniumTask.parser.XLSXParser;
-import com.TALab4.gmailSeleniumTask.parser.model.Message;
-import com.TALab4.gmailSeleniumTask.parser.model.User;
-import com.opencsv.CSVReader;
+import com.TALab4.gmailSeleniumTask.parser.XMLParser;
 import org.testng.annotations.DataProvider;
 
 import javax.xml.bind.JAXBException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created  on 17.09.17.
  */
 public class DataProviderSource {
-    @DataProvider(name = "usersAndMessages",parallel = true)
+    @DataProvider(name = "usersAndMessages", parallel = true)
     public static Object[][] getUsersAndMessages() throws JAXBException, IOException {
-        AbstractParser parser = new CSVParser();
+        AbstractParser parser = new XMLParser();
         return generateDemensionArray(parser.parseUsers(), parser.parseMessages());
     }
 

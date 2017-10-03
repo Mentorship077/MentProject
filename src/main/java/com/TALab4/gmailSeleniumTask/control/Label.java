@@ -2,7 +2,7 @@ package com.TALab4.gmailSeleniumTask.control;
 
 import org.openqa.selenium.WebElement;
 
-public class Label extends WebElementWrapper {
+public class Label extends Element {
 
 	public Label(WebElement webElement) {
 		super(webElement); 
