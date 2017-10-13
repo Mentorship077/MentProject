@@ -13,11 +13,6 @@
                     <include name="gmailTest"/>
                 </methods>
             </class>
-            <class name="FailedTest">
-                <methods>
-                    <include name="failedTest"/>
-                </methods>
-            </class>
         </classes>
     </test>
 </suite>
