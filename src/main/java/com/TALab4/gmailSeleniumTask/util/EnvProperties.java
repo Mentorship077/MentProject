@@ -87,4 +87,7 @@ public class EnvProperties {
     public String getChomeDriverPath() {
         return properties.getProperty("CHROME_DRIVER_PATH");
     }
+    public String getIEDriverPath() {
+        return properties.getProperty("IE_DRIVER_PATH");
+    }
 }

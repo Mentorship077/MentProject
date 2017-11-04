@@ -12,13 +12,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PageObject {
     private WebDriver driverInstance;
     private PageObject(WebDriver driver) {
-        driverInstance = WebDriverManager.getInstance();
+        driverInstance = WebDriverManager.getDriver();
         PageFactory.initElements(
                 new FieldDecorator(driver),this);
     }
 
     public PageObject() {
-        this(WebDriverManager.getInstance());
+        this(WebDriverManager.getDriver());
     }
 
      protected void waitForVisibility(WebElement element) throws Error {
