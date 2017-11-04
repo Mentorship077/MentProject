@@ -4,12 +4,11 @@ import com.TALab4.gmailSeleniumTask.control.Button;
 import com.TALab4.gmailSeleniumTask.webdriverutils.PageObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 /**
  * Created  on 11.09.17.
  */
-public class GmailLoginPage extends PageObject {
+public class GmailLoginPO extends PageObject {
 
     @FindBy(name = "identifier")
     private WebElement email;
@@ -20,13 +19,13 @@ public class GmailLoginPage extends PageObject {
     @FindBy(css = "span[class='RveJvd snByac']")
     private Button passwordSubmit;
 
-    public GmailLoginPage typeLoginAndSubmit(String emailValue) {
+    public GmailLoginPO typeLoginAndSubmit(String emailValue) {
         this.email.sendKeys(emailValue);
         this.emailSubmit.click();
         return this;
     }
 
-    public GmailLoginPage typePasswordAndSubmit(String passwordValue) {
+    public GmailLoginPO typePasswordAndSubmit(String passwordValue) {
         this.password.sendKeys(passwordValue);
         waitForVisibility(passwordSubmit);
         this.passwordSubmit.click();

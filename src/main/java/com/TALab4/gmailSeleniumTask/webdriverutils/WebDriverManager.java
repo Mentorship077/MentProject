@@ -10,14 +10,14 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created  on 17.09.17.
  */
-public class ParallelWebDriver {
+public class WebDriverManager {
     private final static EnvProperties prop = EnvProperties.getInstance();
     private static final int THREAD_COUNT = 3;
     private static final ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
     private static int counter = 0;
 
 
-    private ParallelWebDriver() {
+    private WebDriverManager() {
     }
 
     public static WebDriver getInstance() {

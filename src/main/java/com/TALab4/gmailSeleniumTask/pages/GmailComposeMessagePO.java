@@ -9,7 +9,7 @@ import org.openqa.selenium.support.How;
 /**
  * Created  on 11.09.17.
  */
-public class GmailComposeMessagePage extends PageObject {
+public class GmailComposeMessagePO extends PageObject {
 
     @FindBy(xpath ="//div[@gh=\"cm\"]" )
     private WebElement creteMessage;

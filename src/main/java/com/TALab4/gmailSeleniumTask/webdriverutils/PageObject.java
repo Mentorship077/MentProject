@@ -3,7 +3,6 @@ package com.TALab4.gmailSeleniumTask.webdriverutils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,13 +12,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PageObject {
     private WebDriver driverInstance;
     private PageObject(WebDriver driver) {
-        driverInstance = ParallelWebDriver.getInstance();
+        driverInstance = WebDriverManager.getInstance();
         PageFactory.initElements(
                 new FieldDecorator(driver),this);
     }
 
     public PageObject() {
-        this(ParallelWebDriver.getInstance());
+        this(WebDriverManager.getInstance());
     }
 
      protected void waitForVisibility(WebElement element) throws Error {

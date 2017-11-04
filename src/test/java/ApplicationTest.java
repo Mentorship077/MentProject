@@ -3,9 +3,9 @@ import com.TALab4.gmailSeleniumTask.businessobject.GmailLoginBO;
 import com.TALab4.gmailSeleniumTask.businessobject.GmailVerifyMessageBO;
 import com.TALab4.gmailSeleniumTask.parser.model.Message;
 import com.TALab4.gmailSeleniumTask.parser.model.User;
-import com.TALab4.gmailSeleniumTask.webdriverutils.DataProviderSource;
 import com.TALab4.gmailSeleniumTask.util.EnvProperties;
-import com.TALab4.gmailSeleniumTask.webdriverutils.ParallelWebDriver;
+import com.TALab4.gmailSeleniumTask.webdriverutils.DataProviderSource;
+import com.TALab4.gmailSeleniumTask.webdriverutils.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -28,19 +28,16 @@ public class ApplicationTest extends Assert {
 
     @Test(successPercentage = 75, dataProvider = "usersAndMessages", threadPoolSize = 3, dataProviderClass = DataProviderSource.class)
     public void gmailTest(User userList, Message messageList) throws JAXBException, InterruptedException {
-        ParallelWebDriver.gotoURL(prop.getBaseUrl());
+        WebDriverManager.gotoURL(prop.getBaseUrl());
 
-        boolean isLoggedIn = loginBO.login(userList);
-        assertTrue(isLoggedIn);
-        boolean isComposedMessage = composeMessageBO.composeMessage(messageList);
-        assertTrue(isComposedMessage);
-        boolean isSelectedAndDeletedMessage = verifyMessageBO.selectAndDeleteSentMessage();
-        assertTrue(isSelectedAndDeletedMessage);
+        loginBO.login(userList);
+        composeMessageBO.composeMessage(messageList);
+        verifyMessageBO.selectAndDeleteSentMessage();
     }
 
     @AfterMethod
     public void quitTheMethod() {
-        ParallelWebDriver.quitTheBrowser();
+        WebDriverManager.quitTheBrowser();
     }
 }
 

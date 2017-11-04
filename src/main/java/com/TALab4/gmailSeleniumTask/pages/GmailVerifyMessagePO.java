@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created  on 11.09.17.
  */
-public class GmailVerifyMessage extends PageObject {
+public class GmailVerifyMessagePO extends PageObject {
 
     @FindBy(xpath = "//div[@class=\"TN GLujEb aHS-bnu\"]//a")
     private WebElement sent;
