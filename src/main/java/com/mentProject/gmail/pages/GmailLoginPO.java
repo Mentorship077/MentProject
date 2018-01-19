@@ -1,7 +1,7 @@
 package com.mentProject.gmail.pages;
 
 import com.mentProject.gmail.control.Button;
-import com.mentProject.gmail.webdriverutils.PageObject;
+import com.mentProject.gmail.core.PageObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

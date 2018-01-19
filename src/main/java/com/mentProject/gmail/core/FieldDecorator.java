@@ -1,7 +1,7 @@
-package com.mentProject.gmail.webdriverutils;
+package com.mentProject.gmail.core;
 
-import com.mentProject.gmail.webdriverutils.decorator_utils.LocatingCustomElementListHandler;
-import com.mentProject.gmail.webdriverutils.decorator_utils.WrapperFactory;
+import com.mentProject.gmail.core.decorator_utils.LocatingCustomElementListHandler;
+import com.mentProject.gmail.core.decorator_utils.WrapperFactory;
 import com.mentProject.gmail.control.IElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;

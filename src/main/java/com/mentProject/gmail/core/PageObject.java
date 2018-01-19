@@ -1,4 +1,4 @@
-package com.mentProject.gmail.webdriverutils;
+package com.mentProject.gmail.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,7 +1,7 @@
-package com.mentProject.gmail.webdriverutils;
+package com.mentProject.gmail.util;
 
-import com.mentProject.gmail.parser.AbstractParser;
-import com.mentProject.gmail.parser.XMLParser;
+import com.mentProject.gmail.fileReader.AbstractParser;
+import com.mentProject.gmail.fileReader.CSVParser;
 import org.testng.annotations.DataProvider;
 
 import javax.xml.bind.JAXBException;
@@ -14,7 +14,7 @@ import java.util.List;
 public class DataProviderSource {
     @DataProvider(name = "usersAndMessages", parallel = true)
     public static Object[][] getUsersAndMessages() throws JAXBException, IOException {
-        AbstractParser parser = new XMLParser();
+        AbstractParser parser = new CSVParser();
         return generateDemensionArray(parser.parseUsers(), parser.parseMessages());
     }
 

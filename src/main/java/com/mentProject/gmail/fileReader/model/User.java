@@ -1,4 +1,4 @@
-package com.mentProject.gmail.parser.model;
+package com.mentProject.gmail.fileReader.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

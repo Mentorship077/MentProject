@@ -1,7 +1,7 @@
 package com.mentProject.gmail.businessobject;
 
 import com.mentProject.gmail.pages.GmailComposeMessagePO;
-import com.mentProject.gmail.parser.model.Message;
+import com.mentProject.gmail.fileReader.model.Message;
 
 /**
  * Created  on 17.09.17.

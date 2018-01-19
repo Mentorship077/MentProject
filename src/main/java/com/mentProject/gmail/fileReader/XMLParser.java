@@ -1,9 +1,9 @@
-package com.mentProject.gmail.parser;
+package com.mentProject.gmail.fileReader;
 
-import com.mentProject.gmail.parser.model.Message;
-import com.mentProject.gmail.parser.model.Messages;
-import com.mentProject.gmail.parser.model.Users;
-import com.mentProject.gmail.parser.model.User;
+import com.mentProject.gmail.fileReader.model.Message;
+import com.mentProject.gmail.fileReader.model.Messages;
+import com.mentProject.gmail.fileReader.model.Users;
+import com.mentProject.gmail.fileReader.model.User;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

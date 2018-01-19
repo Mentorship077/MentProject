@@ -1,4 +1,4 @@
-package com.mentProject.gmail.webdriverutils.decorator_utils;
+package com.mentProject.gmail.core.decorator_utils;
 
 import com.mentProject.gmail.control.IElement;
 import org.openqa.selenium.WebElement;
