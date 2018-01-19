@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class DataProviderSource {
     @DataProvider(name = "usersAndMessages", parallel = true)
-    public static Object[][] getUsersAndMessages() throws JAXBException, IOException {
+    public static Object[][] getUsersAndMessages() throws IOException, JAXBException {
         AbstractParser parser = new CSVParser();
         return generateDemensionArray(parser.parseUsers(), parser.parseMessages());
     }
