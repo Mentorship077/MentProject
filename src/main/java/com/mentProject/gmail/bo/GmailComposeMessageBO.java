@@ -1,4 +1,4 @@
-package com.mentProject.gmail.businessobject;
+package com.mentProject.gmail.bo;
 
 import com.mentProject.gmail.pages.GmailComposeMessagePO;
 import com.mentProject.gmail.fileReader.model.Message;

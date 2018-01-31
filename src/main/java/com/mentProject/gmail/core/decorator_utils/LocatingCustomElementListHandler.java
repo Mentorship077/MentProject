@@ -1,6 +1,6 @@
 package com.mentProject.gmail.core.decorator_utils;
 
-import com.mentProject.gmail.control.IElement;
+import com.mentProject.gmail.core.elements.IElement;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.pagefactory.ElementLocator;
 

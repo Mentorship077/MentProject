@@ -1,11 +1,11 @@
-import com.mentProject.gmail.businessobject.GmailComposeMessageBO;
-import com.mentProject.gmail.businessobject.GmailLoginBO;
-import com.mentProject.gmail.businessobject.GmailVerifyMessageBO;
+import com.mentProject.gmail.bo.GmailComposeMessageBO;
+import com.mentProject.gmail.bo.GmailLoginBO;
+import com.mentProject.gmail.bo.GmailVerifyMessageBO;
 import com.mentProject.gmail.fileReader.model.Message;
 import com.mentProject.gmail.fileReader.model.User;
 import com.mentProject.gmail.util.EnvProperties;
 import com.mentProject.gmail.util.DataProviderSource;
-import com.mentProject.gmail.core.WebDriverManager;
+import com.mentProject.gmail.core.driver.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;

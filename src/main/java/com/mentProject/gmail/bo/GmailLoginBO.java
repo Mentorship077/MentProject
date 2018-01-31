@@ -1,4 +1,4 @@
-package com.mentProject.gmail.businessobject;
+package com.mentProject.gmail.bo;
 
 import com.mentProject.gmail.pages.GmailLoginPO;
 import com.mentProject.gmail.fileReader.model.User;

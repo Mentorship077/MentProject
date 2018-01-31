@@ -1,4 +1,4 @@
-package com.mentProject.gmail.core;
+package com.mentProject.gmail.core.driver;
 
 import com.mentProject.gmail.util.EnvProperties;
 import org.openqa.selenium.WebDriver;

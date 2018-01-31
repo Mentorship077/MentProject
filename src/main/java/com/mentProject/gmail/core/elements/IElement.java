@@ -1,4 +1,4 @@
-package com.mentProject.gmail.control;
+package com.mentProject.gmail.core.elements;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.internal.Coordinates;

@@ -1,8 +1,8 @@
-package com.mentProject.gmail.core;
+package com.mentProject.gmail.core.elements;
 
 import com.mentProject.gmail.core.decorator_utils.LocatingCustomElementListHandler;
 import com.mentProject.gmail.core.decorator_utils.WrapperFactory;
-import com.mentProject.gmail.control.IElement;
+import com.mentProject.gmail.core.elements.IElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
