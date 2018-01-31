@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class WebDriverManager {
     private final static EnvProperties prop = EnvProperties.getInstance();
-    private static final int THREAD_COUNT = 3;
+    private static final int THREAD_COUNT = 1;
     private static final ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
     private static int counter = 0;
 

@@ -1,4 +1,4 @@
-package com.mentProject.gmail.fileReader.model;
+package com.mentProject.gmail.fileReader.enterDataGmail.model;
 
 public class Message {
     private String to;

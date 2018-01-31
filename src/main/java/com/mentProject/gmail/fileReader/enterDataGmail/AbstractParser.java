@@ -1,7 +1,7 @@
-package com.mentProject.gmail.fileReader;
+package com.mentProject.gmail.fileReader.enterDataGmail;
 
-import com.mentProject.gmail.fileReader.model.Message;
-import com.mentProject.gmail.fileReader.model.User;
+import com.mentProject.gmail.fileReader.enterDataGmail.model.Message;
+import com.mentProject.gmail.fileReader.enterDataGmail.model.User;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
