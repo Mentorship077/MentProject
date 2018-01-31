@@ -6,7 +6,7 @@ import com.mentProject.gmail.pages.GmailVerifyMessagePO;
  * Created  on 17.09.17.
  */
 public class GmailVerifyMessageBO {
-    public void selectAndDeleteSentMessage() throws InterruptedException {
+    public void selectAndDeleteSentMessage(){
         GmailVerifyMessagePO verifyMessage = new GmailVerifyMessagePO();
         verifyMessage.checkAndSelectSent();
         verifyMessage.deleteMessageAndConfirm();

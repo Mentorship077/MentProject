@@ -27,9 +27,8 @@ public class ApplicationTest {
     public void gmailTest(User userList, Message messageList){
         WebDriverManager.gotoURL(prop.getBaseUrl());
         loginBO.login(userList);
-//        Thread.sleep(6000);
-//        composeMessageBO.composeMessage(messageList);
-//        verifyMessageBO.selectAndDeleteSentMessage();
+        composeMessageBO.composeMessage(messageList);
+        verifyMessageBO.selectAndDeleteSentMessage();
     }
 
     @AfterMethod
