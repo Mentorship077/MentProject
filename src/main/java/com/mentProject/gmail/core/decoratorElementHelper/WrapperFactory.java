@@ -1,4 +1,4 @@
-package com.mentProject.gmail.core.decorator_utils;
+package com.mentProject.gmail.core.decoratorElementHelper;
 
 import com.mentProject.gmail.core.elements.IElement;
 import org.openqa.selenium.WebElement;

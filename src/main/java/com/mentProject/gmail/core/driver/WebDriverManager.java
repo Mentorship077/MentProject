@@ -1,6 +1,7 @@
 package com.mentProject.gmail.core.driver;
 
 import com.mentProject.gmail.util.EnvProperties;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -47,5 +48,9 @@ public class WebDriverManager {
             counter--;
             webDriver.remove();
         }
+    }
+
+    public static Object executeScript(String script, Object... args) {
+        return ((JavascriptExecutor) WebDriverManager.getInstance()).executeScript(script, args);
     }
 }
