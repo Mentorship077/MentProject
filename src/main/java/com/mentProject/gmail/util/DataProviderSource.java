@@ -1,7 +1,7 @@
 package com.mentProject.gmail.util;
 
-import com.mentProject.gmail.fileReader.AbstractParser;
-import com.mentProject.gmail.fileReader.CSVParser;
+import com.mentProject.gmail.fileReader.enterDataGmail.AbstractParser;
+import com.mentProject.gmail.fileReader.enterDataGmail.CSVParser;
 import org.testng.annotations.DataProvider;
 
 import javax.xml.bind.JAXBException;

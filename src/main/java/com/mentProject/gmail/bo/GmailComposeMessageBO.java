@@ -1,7 +1,7 @@
 package com.mentProject.gmail.bo;
 
 import com.mentProject.gmail.pages.GmailComposeMessagePO;
-import com.mentProject.gmail.fileReader.model.Message;
+import com.mentProject.gmail.fileReader.enterDataGmail.model.Message;
 
 /**
  * Created  on 17.09.17.

@@ -1,5 +1,6 @@
 package com.mentProject.gmail.util;
 
+import com.mentProject.gmail.fileReader.KeywordsXLSXParser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -27,7 +28,7 @@ public class EnvProperties {
     private static final String REMOTE_URL = "http://ecsf002002eb.epam.com:4444/wd/hub";
     private static EnvProperties instance;
     private Properties properties;
-
+    private KeywordsXLSXParser keywordsXLSXParser = new KeywordsXLSXParser();
 
     private EnvProperties() {
         properties = new Properties();
@@ -45,8 +46,9 @@ public class EnvProperties {
         }
         return instance;
     }
-    public RemoteWebDriver getDriver()  {
-        String browserName =  getBrowserName();
+
+    public RemoteWebDriver getDriver() {
+        String browserName = getBrowserName();
         RemoteWebDriver webDriver = null;
         switch (browserName) {
             case IE_DRIVER:
@@ -71,17 +73,18 @@ public class EnvProperties {
         return webDriver;
     }
 
-    public WebDriver getProcessDriver(long time){
+    public WebDriver getProcessDriver(long time) {
         WebDriver driver = getDriver();
         driver.manage().timeouts().implicitlyWait(time, TimeUnit.MINUTES);
         return driver;
     }
+
     public String getBrowserName() {
-        return properties.getProperty("browser");
+        return keywordsXLSXParser.getBrowserName();
     }
 
-    public String getBaseUrl() {
-        return properties.getProperty("FIRST_PAGE");
+    public String getBaseURL() {
+        return keywordsXLSXParser.getEnterURL();
     }
 
     public String getChomeDriverPath() {

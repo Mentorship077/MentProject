@@ -1,8 +1,8 @@
 import com.mentProject.gmail.bo.GmailComposeMessageBO;
 import com.mentProject.gmail.bo.GmailLoginBO;
 import com.mentProject.gmail.bo.GmailVerifyMessageBO;
-import com.mentProject.gmail.fileReader.model.Message;
-import com.mentProject.gmail.fileReader.model.User;
+import com.mentProject.gmail.fileReader.enterDataGmail.model.Message;
+import com.mentProject.gmail.fileReader.enterDataGmail.model.User;
 import com.mentProject.gmail.util.EnvProperties;
 import com.mentProject.gmail.util.DataProviderSource;
 import com.mentProject.gmail.core.driver.WebDriverManager;
@@ -25,7 +25,7 @@ public class ApplicationTest {
 
     @Test(dataProvider = "usersAndMessages", dataProviderClass = DataProviderSource.class)
     public void gmailTest(User userList, Message messageList){
-        WebDriverManager.gotoURL(prop.getBaseUrl());
+        WebDriverManager.gotoURL(prop.getBaseURL());
         loginBO.login(userList);
         composeMessageBO.composeMessage(messageList);
         verifyMessageBO.selectAndDeleteSentMessage();
