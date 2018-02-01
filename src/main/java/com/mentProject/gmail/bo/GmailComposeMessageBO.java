@@ -9,7 +9,11 @@ import com.mentProject.gmail.fileReader.enterDataGmail.model.Message;
 public class GmailComposeMessageBO {
     public void composeMessage(Message message) {
         GmailComposeMessagePO composeMessagePage = new GmailComposeMessagePO();
-        composeMessagePage.typeMessageAndSubmit(message.getTo(),
-                message.getSubject(), message.getTextMessage());
+        composeMessagePage
+                .clickComposeButton()
+                .enterEmailTo(message.getTo())
+                .enterSubject(message.getSubject())
+                .enterTextMessage(message.getTextMessage())
+                .clickSendButton();
     }
 }
