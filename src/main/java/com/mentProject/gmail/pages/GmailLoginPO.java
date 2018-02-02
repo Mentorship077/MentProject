@@ -3,7 +3,9 @@ package com.mentProject.gmail.pages;
 import com.mentProject.gmail.core.elements.Button;
 import com.mentProject.gmail.core.PageObject;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,14 +23,14 @@ public class GmailLoginPO extends PageObject {
     @FindBy(css = "span[class='RveJvd snByac']")
     private Button passwordSubmit;
 
-    @Then("^fill the user login$")
+    @Given("^fill the user login$")
     public GmailLoginPO typeLoginAndSubmit(String emailValue) {
         this.email.sendKeys(emailValue);
         this.emailSubmit.click();
         return this;
     }
 
-    @And("fill the password")
+    @When("^fill the password$")
     public GmailLoginPO typePasswordAndSubmit(String passwordValue) {
         this.password.sendKeys(passwordValue);
         waitForVisibility(passwordSubmit);

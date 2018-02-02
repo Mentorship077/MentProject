@@ -2,7 +2,9 @@ package com.mentProject.gmail.pages;
 
 import com.mentProject.gmail.core.PageObject;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,20 +25,20 @@ public class GmailComposeMessagePO extends PageObject {
     private WebElement sentMessage;
 
 
-    @Then("^click on Compose button$")
+    @Given("^click on Compose button$")
     public GmailComposeMessagePO clickComposeButton() {
         this.creteMessage.click();
         return this;
     }
 
-    @And("^fill email for sending$")
+    @When("^fill email for sending$")
     public GmailComposeMessagePO enterEmailTo(String to) {
         this.to.sendKeys(to);
         return this;
     }
 
 
-    @And("^fill subject content$")
+    @When("^fill subject content$")
     public GmailComposeMessagePO enterSubject(String subject) {
         this.subjectbox.sendKeys(subject);
         return this;
@@ -48,7 +50,7 @@ public class GmailComposeMessagePO extends PageObject {
         return this;
     }
 
-    @And("^click to Send$")
+    @Then("^click to Send$")
     public GmailComposeMessagePO clickSendButton() {
         this.sentMessage.click();
         return this;
