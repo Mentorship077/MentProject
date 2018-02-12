@@ -31,20 +31,20 @@ public class GmailComposeMessagePO extends PageObject {
         return this;
     }
 
-    @When("^fill email for sending$")
+    @When("^fill email for sending: (.*)$")
     public GmailComposeMessagePO enterEmailTo(String to) {
         this.to.sendKeys(to);
         return this;
     }
 
 
-    @When("^fill subject content$")
+    @When("^fill subject content: (.*)$")
     public GmailComposeMessagePO enterSubject(String subject) {
         this.subjectbox.sendKeys(subject);
         return this;
     }
 
-    @And("^fill text message$")
+    @And("^fill text message: (.*)$")
     public GmailComposeMessagePO enterTextMessage(String textMessage) {
         this.textMessage.sendKeys(textMessage);
         return this;

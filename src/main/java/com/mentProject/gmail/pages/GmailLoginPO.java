@@ -23,14 +23,14 @@ public class GmailLoginPO extends PageObject {
     @FindBy(css = "span[class='RveJvd snByac']")
     private Button passwordSubmit;
 
-    @When("^fill the user login$")
+    @When("^fill the user login: (.*)$")
     public GmailLoginPO typeLoginAndSubmit(String emailValue) {
         this.email.sendKeys(emailValue);
         this.emailSubmit.click();
         return this;
     }
 
-    @And("^fill the password$")
+    @And("^fill the password: (.*)$")
     public GmailLoginPO typePasswordAndSubmit(String passwordValue) {
         this.password.sendKeys(passwordValue);
         waitForVisibility(passwordSubmit);

@@ -18,7 +18,7 @@ public class WebDriverManager {
     private static int counter = 0;
 
 
-    private WebDriverManager() {
+    public WebDriverManager() {
     }
 
     public static WebDriver getInstance() {
@@ -38,7 +38,7 @@ public class WebDriverManager {
         return webDriver.get();
     }
 
-    @Given("^gmail open url$")
+    @Given("^gmail open url: (.*)$")
     public static void gotoURL(String url) {
         getInstance().navigate().to(url);
     }
