@@ -1,7 +1,6 @@
 package com.mentProject.gmail.core.driver;
 
 import com.mentProject.gmail.util.EnvProperties;
-import cucumber.api.java.en.Given;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,7 +37,6 @@ public class WebDriverManager {
         return webDriver.get();
     }
 
-    @Given("^gmail open url: (.*)$")
     public static void gotoURL(String url) {
         getInstance().navigate().to(url);
     }

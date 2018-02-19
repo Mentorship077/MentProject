@@ -1,9 +1,6 @@
 package com.mentProject.gmail.pages;
 
 import com.mentProject.gmail.core.PageObject;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -22,25 +19,21 @@ public class GmailVerifyMessagePO extends PageObject {
     private WebElement confirmDeleting;
 
 
-    @When("^click OnAllSentMessagesButton$")
     public GmailVerifyMessagePO clickOnAllSentMessagesButton() {
         sent.click();
         return this;
     }
 
-    @Then("^select LastSentMessage$")
     public GmailVerifyMessagePO selectLastSentMessage() {
         emailCheckbox.click();
         return this;
     }
 
-    @And("^delete message$")
     public GmailVerifyMessagePO deleteMessage() {
         deleteMessage.click();
         return this;
     }
 
-    @Then("^confirm MessageDeleting$")
     public GmailVerifyMessagePO confirmMessageDeleting() {
         confirmDeleting.click();
         return this;

@@ -5,8 +5,8 @@ import com.mentProject.gmail.pages.GmailVerifyMessagePO;
 /**
  * Created  on 17.09.17.
  */
-public class GmailVerifyMessageBO {
-    public void selectAndDeleteSentMessage() {
+public class GmailDeleteMessageBO {
+    public void delete() {
         GmailVerifyMessagePO verifyMessage = new GmailVerifyMessagePO();
         verifyMessage
                 .clickOnAllSentMessagesButton()
