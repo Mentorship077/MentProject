@@ -7,7 +7,7 @@ import com.mentProject.gmail.fileReader.model.Message;
  * Created  on 17.09.17.
  */
 public class GmailComposeMessageBO {
-    public void composeMessage(Message message) {
+    public void compose(Message message) {
         GmailComposeMessagePO composeMessagePage = new GmailComposeMessagePO();
         composeMessagePage.typeMessageAndSubmit(message.getTo(),
                 message.getSubject(), message.getTextMessage());
