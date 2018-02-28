@@ -10,7 +10,7 @@ public class TestCaseModel {
     private String result;
 
 
-    boolean emptyAllFields() {
+    boolean isRowEmpty() {
         return getTesTestCase().isEmpty() && getStep().isEmpty() &&
                 getKeyword().isEmpty() && getOperation().isEmpty() &&
                 getDataSet().isEmpty() && getDescription().isEmpty() && getResult().isEmpty();

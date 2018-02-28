@@ -1,5 +1,6 @@
 package com.mentProject.gmail.kdtParser;
 
+import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -15,15 +16,16 @@ public class ExcelParser {
     // excel properties
     String KEYWORDS_XLSX_PATH = "keywords.xlsx";
     String EXCEL_SHEET = "GmailKeywords";
-    Integer maxRowSize;
+    private Logger LOG = Logger.getLogger(ExcelParser.class);
 
     public static void main(String[] args) {
         ExcelParser excelParser = new ExcelParser();
         List<TestCaseModel> list = new ArrayList<>();
+        excelParser.getListTestCaseModelsl(excelParser, list).forEach(System.out::println);
+    }
 
-        System.out.println(excelParser.getField(1, FOUR.getNumber()));
-
-        int i = 0;
+    private List<TestCaseModel> getListTestCaseModelsl(ExcelParser excelParser, List<TestCaseModel> list) {
+        int i = 1;
         do {
             TestCaseModel testCaseModel = new TestCaseModel();
             testCaseModel.setTesTestCase(excelParser.getField(i, ZERO.getNumber()));
@@ -33,24 +35,25 @@ public class ExcelParser {
             testCaseModel.setDataSet(excelParser.getField(i, FOUR.getNumber()));
             testCaseModel.setDescription(excelParser.getField(i, FIVE.getNumber()));
             testCaseModel.setResult(excelParser.getField(i, SIX.getNumber()));
-            if (testCaseModel.emptyAllFields()) {
+            if (testCaseModel.isRowEmpty()) {
                 break;
             }
-
             list.add(testCaseModel);
             i++;
         } while (true);
-
-        list.forEach(System.out::println);
+        return list;
     }
 
     public String getField(int rowNumber, Integer cellNumber) {
         XSSFWorkbook myExcelBook = null;
         try {
-            myExcelBook = new XSSFWorkbook(new FileInputStream(KEYWORDS_XLSX_PATH));
+            FileInputStream inputStream = new FileInputStream(KEYWORDS_XLSX_PATH);
+            myExcelBook = new XSSFWorkbook(inputStream);
+            inputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("File not found: " + e.getMessage());
         }
+
         XSSFSheet myExcelSheet = myExcelBook.getSheet(EXCEL_SHEET);
         XSSFRow row = myExcelSheet.getRow(rowNumber);
         try {
@@ -59,5 +62,4 @@ public class ExcelParser {
             return "";
         }
     }
-
 }
