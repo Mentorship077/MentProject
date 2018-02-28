@@ -1,17 +1,16 @@
 package com.mentProject.gmail.excelparser.update;
 
 
-import com.epam.excelparser.core.exception.InvalidColumnHeaderException;
-import com.epam.excelparser.core.utils.ExcelFileUtils;
-import com.epam.test.TestLogger;
+import com.mentProject.gmail.excelparser.core.exception.InvalidColumnHeaderException;
+import com.mentProject.gmail.excelparser.core.utils.ExcelFileUtils;
+import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.*;
 
 public class UpdateExcelFile {
-
-    private static TestLogger LOG = TestLogger.getLogger();
+    static Logger LOG = Logger.getLogger(UpdateExcelFile.class.getName());
 
     protected Workbook workbook;
     protected String fileName;
@@ -22,6 +21,17 @@ public class UpdateExcelFile {
 
     public UpdateExcelFile(File file) {
         this.fileName = file.getPath();
+    }
+
+    private static int findColumn(Sheet sheet, String columnHeader) {
+        int columnNumber = -1;
+        Row row = sheet.getRow(0);
+        for (Cell currentCell : row) {
+            if (currentCell.getStringCellValue().equalsIgnoreCase(columnHeader)) {
+                columnNumber = currentCell.getColumnIndex();
+            }
+        }
+        return columnNumber;
     }
 
     public UpdateExcelFile openFile() {
@@ -44,7 +54,6 @@ public class UpdateExcelFile {
         return this;
     }
 
-
     public UpdateExcelFile saveChangesToFile() {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(fileName);
@@ -58,13 +67,11 @@ public class UpdateExcelFile {
         return this;
     }
 
-
     public UpdateExcelFile updateCellByIndex(int rowIndex, int cellIndex, String newCellValue) {
         Sheet sheet = workbook.getSheetAt(0);
         editCell(sheet, rowIndex, cellIndex, newCellValue);
         return this;
     }
-
 
     public UpdateExcelFile updateCellByColumnHeader(String columnHeader, int rowIndex, String newCellValue) {
         Sheet sheet = workbook.getSheetAt(0);
@@ -75,7 +82,6 @@ public class UpdateExcelFile {
 
         return this;
     }
-
 
     public UpdateExcelFile updateColumnByHeader(String columnHeader, String newCellValue) {
         Sheet sheet = workbook.getSheetAt(0);
@@ -91,7 +97,6 @@ public class UpdateExcelFile {
         return this;
     }
 
-
     public UpdateExcelFile updateColumnByIndex(int columnIndex, String newCellValue) {
         Sheet sheet = workbook.getSheetAt(0);
         int rowCount = ExcelFileUtils.getActualRowCount(sheet, 1);
@@ -101,7 +106,6 @@ public class UpdateExcelFile {
         return this;
     }
 
-
     public UpdateExcelFile updateRowByIndex(int rowIndex, String newCellValue) {
         Sheet sheet = workbook.getSheetAt(0);
         for (int cellIndex = 0; cellIndex < ExcelFileUtils.getActualCellCount(sheet); cellIndex++) {
@@ -109,7 +113,6 @@ public class UpdateExcelFile {
         }
         return this;
     }
-
 
     private Cell editCell(Sheet sheet, int rowIndex, int cellIndex, String value) {
         Row row = sheet.getRow(rowIndex);
@@ -122,19 +125,6 @@ public class UpdateExcelFile {
         }
         return cell;
     }
-
-
-    private static int findColumn(Sheet sheet, String columnHeader) {
-        int columnNumber = -1;
-        Row row = sheet.getRow(0);
-        for (Cell currentCell : row) {
-            if (currentCell.getStringCellValue().equalsIgnoreCase(columnHeader)) {
-                columnNumber = currentCell.getColumnIndex();
-            }
-        }
-        return columnNumber;
-    }
-
 
     public Sheet getSheet() {
         return workbook.getSheetAt(0);

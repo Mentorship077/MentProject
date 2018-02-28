@@ -1,13 +1,10 @@
 package com.mentProject.gmail.excelparser.update;
 
-import com.epam.excelparser.core.model.constants.ProductCreateHeaderConst;
-import com.epam.excelparser.core.utils.ExcelFileUtils;
+import com.mentProject.gmail.excelparser.core.model.constants.ProductCreateHeaderConst;
+import com.mentProject.gmail.excelparser.core.utils.ExcelFileUtils;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-/**
- * Created by Anastasiia_Kitlinska on 11/28/2017
- */
 public class UpdateNewScuUploadExcelFile extends UpdateExcelFile {
 
     public UpdateNewScuUploadExcelFile(String fileName) {

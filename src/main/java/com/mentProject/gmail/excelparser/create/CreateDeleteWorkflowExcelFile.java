@@ -1,7 +1,6 @@
 package com.mentProject.gmail.excelparser.create;
-
-import com.epam.excelparser.core.marshall.UnmarshallExcelFile;
-import com.epam.excelparser.core.model.excel.ExcelRowDeleteWorkflow;
+import com.mentProject.gmail.excelparser.core.marshall.UnmarshallExcelFile;
+import com.mentProject.gmail.excelparser.core.model.excel.ExcelRowDeleteWorkflow;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -13,9 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Anastasiia_Kitlinska on 11/16/2017
- */
 public class CreateDeleteWorkflowExcelFile {
 
     private static Logger LOG = Logger.getLogger(CreateDeleteWorkflowExcelFile.class);
