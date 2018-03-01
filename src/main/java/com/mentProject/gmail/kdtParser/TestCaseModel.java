@@ -1,7 +1,7 @@
 package com.mentProject.gmail.kdtParser;
 
 public class TestCaseModel {
-    private String tesTestCase;
+    private String testTestCase;
     private String step;
     private String keyword;
     private String operation;
@@ -11,15 +11,20 @@ public class TestCaseModel {
 
 
     boolean isRowEmpty() {
-        return getTesTestCase().isEmpty() && getStep().isEmpty() &&
+        return getTestTestCase().isEmpty() && getStep().isEmpty() &&
                 getKeyword().isEmpty() && getOperation().isEmpty() &&
                 getDataSet().isEmpty() && getDescription().isEmpty() && getResult().isEmpty();
     }
 
+    boolean isTestCaseCellEmpty() {
+        return getTestTestCase().isEmpty();
+    }
+
+
     @Override
     public String toString() {
         return "TestCaseModel{" +
-                "tesTestCase='" + tesTestCase + '\'' +
+                "tesTestCase='" + testTestCase + '\'' +
                 ", step='" + step + '\'' +
                 ", keyword='" + keyword + '\'' +
                 ", operation='" + operation + '\'' +
@@ -29,12 +34,12 @@ public class TestCaseModel {
                 '}';
     }
 
-    public String getTesTestCase() {
-        return tesTestCase;
+    public String getTestTestCase() {
+        return testTestCase;
     }
 
-    public void setTesTestCase(String tesTestCase) {
-        this.tesTestCase = tesTestCase;
+    public void setTestTestCase(String tesTestCase) {
+        this.testTestCase = tesTestCase;
     }
 
     public String getStep() {

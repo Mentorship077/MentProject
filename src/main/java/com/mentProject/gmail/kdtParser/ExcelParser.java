@@ -26,9 +26,10 @@ public class ExcelParser {
 
     private List<TestCaseModel> getListTestCaseModelsl(ExcelParser excelParser, List<TestCaseModel> list) {
         int i = 1;
+        int testCaseCashCellNumber = 0;
         do {
             TestCaseModel testCaseModel = new TestCaseModel();
-            testCaseModel.setTesTestCase(excelParser.getField(i, ZERO.getNumber()));
+            testCaseModel.setTestTestCase(excelParser.getField(i, ZERO.getNumber()));
             testCaseModel.setStep(excelParser.getField(i, ONE.getNumber()));
             testCaseModel.setKeyword(excelParser.getField(i, TWO.getNumber()));
             testCaseModel.setOperation(excelParser.getField(i, THREE.getNumber()));
@@ -37,6 +38,11 @@ public class ExcelParser {
             testCaseModel.setResult(excelParser.getField(i, SIX.getNumber()));
             if (testCaseModel.isRowEmpty()) {
                 break;
+            }
+            if(!testCaseModel.isTestCaseCellEmpty()){
+                testCaseCashCellNumber = i;
+            }else {
+                testCaseModel.setTestTestCase(excelParser.getField(testCaseCashCellNumber, ZERO.getNumber()));
             }
             list.add(testCaseModel);
             i++;
