@@ -1,4 +1,4 @@
-package com.mentProject.gmail.kdtParser;
+package com.mentProject.gmail.excelParser.model;
 
 public class TestCaseModel {
     private String testTestCase;
@@ -25,13 +25,13 @@ public class TestCaseModel {
                 '}';
     }
 
-    boolean isRowEmpty() {
+   public boolean isRowEmpty() {
         return getTestTestCase().isEmpty() && getType().isEmpty() && getStep().isEmpty() &&
                 getKeyword().isEmpty() && getOperation().isEmpty() &&
                 getDataSet().isEmpty() && getDescription().isEmpty() && getResult().isEmpty();
     }
 
-    boolean isTestCaseCellEmpty() {
+    public boolean isTestCaseCellEmpty() {
         return getTestTestCase().isEmpty();
     }
 
