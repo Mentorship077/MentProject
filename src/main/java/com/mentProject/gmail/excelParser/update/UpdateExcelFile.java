@@ -1,8 +1,8 @@
 package com.mentProject.gmail.excelParser.update;
 
 
-import com.mentProject.gmail.excelparser1.core.exception.InvalidColumnHeaderException;
-import com.mentProject.gmail.excelparser1.core.utils.ExcelFileUtils;
+import com.mentProject.gmail.excelParser.core.exception.InvalidColumnHeaderException;
+import com.mentProject.gmail.excelParser.core.utils.ExcelFileUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;

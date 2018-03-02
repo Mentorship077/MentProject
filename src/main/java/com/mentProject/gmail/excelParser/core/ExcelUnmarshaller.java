@@ -4,10 +4,10 @@ import com.mentProject.gmail.bo.GmailComposeMessageBO;
 import com.mentProject.gmail.bo.GmailDeleteMessageBO;
 import com.mentProject.gmail.bo.GmailLoginBO;
 import com.mentProject.gmail.core.driver.WebDriverManager;
+import com.mentProject.gmail.excelParser.core.exception.NotFoundKeywordException;
 import com.mentProject.gmail.excelParser.model.TestCaseModel;
 import com.mentProject.gmail.fileReader.model.Message;
 import com.mentProject.gmail.fileReader.model.User;
-import com.mentProject.gmail.kdtParser.NotFoundKeywordException;
 import com.mentProject.gmail.util.EnvProperties;
 import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -18,26 +18,25 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.mentProject.gmail.excelParser.core.constants.Keywords.*;
-import static com.mentProject.gmail.kdtParser.NumberConstant.*;
+import static com.mentProject.gmail.excelParser.core.constants.NumberConstant.*;
 
 public class ExcelUnmarshaller {
     // excel properties
     private static final String KEYWORDS_XLSX_PATH = "keywords.xlsx";
     private static final String EXCEL_SHEET = "GmailKeywords";
+    private static final String EMAIL_PARAMETER = "email";
+    private static final String PASSWORD_PARAMETER = "password";
     private final static EnvProperties prop = EnvProperties.getInstance();
+    private Logger LOG = Logger.getLogger(ExcelUnmarshaller.class);
 
     private GmailComposeMessageBO gmailComposeMessageBO = new GmailComposeMessageBO();
     private GmailLoginBO gmailLoginBO = new GmailLoginBO();
     private GmailDeleteMessageBO gmailDeleteMessageBO = new GmailDeleteMessageBO();
 
-
-    private Logger LOG = Logger.getLogger(ExcelUnmarshaller.class);
-
-    public static void main(String[] args) {
-        new ExcelUnmarshaller().runKeywords();
-    }
 
     public void runKeywords() {
         ExcelUnmarshaller excelUnmarshaller = new ExcelUnmarshaller();
@@ -48,7 +47,7 @@ public class ExcelUnmarshaller {
             if (aList.getKeyword().equalsIgnoreCase(RUN_APP)) {
                 WebDriverManager.gotoURL(prop.getBaseUrl());
             } else if (aList.getKeyword().equalsIgnoreCase(LOGIN)) {
-                gmailLoginBO.login(new User("papai9919@gmail.com", "123456Pp"));
+                gmailLoginBO.login(new User(loginParameterParser(aList.getDataSet(), EMAIL_PARAMETER), loginParameterParser(aList.getDataSet(), PASSWORD_PARAMETER)));
             } else if (aList.getKeyword().equalsIgnoreCase(COMPOSE)) {
                 gmailComposeMessageBO.compose(new Message("superPapai1488@gmail.com", "subject", "textMessage"));
             } else if (aList.getKeyword().equalsIgnoreCase(DELETE)) {
@@ -63,6 +62,12 @@ public class ExcelUnmarshaller {
         }
     }
 
+    public String loginParameterParser(String word, String param) {
+        final Pattern pattern = Pattern.compile(param + "=(.+?);");
+        final Matcher matcher = pattern.matcher("email=papai9919@gmail.com;password=123456Pp;");
+        matcher.find();
+        return matcher.group(1);
+    }
 
     private List<TestCaseModel> getListTestCaseModels(ExcelUnmarshaller excelUnmarshaller, List<TestCaseModel> list) {
         int i = 1;

@@ -1,4 +1,4 @@
-package com.mentProject.gmail.excelparser1.core.exception;
+package com.mentProject.gmail.excelParser.core.exception;
 
 public class InvalidColumnHeaderException extends RuntimeException {
 
