@@ -6,8 +6,8 @@ import com.mentProject.gmail.bo.GmailLoginBO;
 import com.mentProject.gmail.core.driver.WebDriverManager;
 import com.mentProject.gmail.excelParser.core.exception.NotFoundKeywordException;
 import com.mentProject.gmail.excelParser.model.TestCaseModel;
-import com.mentProject.gmail.fileReader.model.Message;
-import com.mentProject.gmail.fileReader.model.User;
+import com.mentProject.gmail.fileReader.enterDataGmail.model.Message;
+import com.mentProject.gmail.fileReader.enterDataGmail.model.User;
 import com.mentProject.gmail.util.EnvProperties;
 import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -45,7 +45,7 @@ public class ExcelUnmarshaller {
         for (TestCaseModel aList : list) {
             System.out.println(aList.getKeyword());
             if (aList.getKeyword().equalsIgnoreCase(RUN_APP)) {
-                WebDriverManager.gotoURL(prop.getBaseUrl());
+                WebDriverManager.gotoURL(prop.getBaseURL());
             } else if (aList.getKeyword().equalsIgnoreCase(LOGIN)) {
                 gmailLoginBO.login(new User(loginParameterParser(aList.getDataSet(), EMAIL_PARAMETER), loginParameterParser(aList.getDataSet(), PASSWORD_PARAMETER)));
             } else if (aList.getKeyword().equalsIgnoreCase(COMPOSE)) {
